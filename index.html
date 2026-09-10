@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outbound</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@400;500;600&display=swap">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h4>OUTBOUND</h4>
+        <div class="navlinks">
+            <a onclick="gotoexplore()">EXPLORE</a>
+            <a onclick="gotomissionmars()">MISSIONS</a>
+            <a onclick="gotoabout()">ABOUT</a>
+        </div>
+    </nav>
+
+    <section class="top">
+        <div>
+            <h1>EXPLORE THE</h1>
+            <h3>UNIVERSE</h3>
+            <h2>Beyond our World</h2>
+            <p>From distant planets to mysterious galaxies,</p>
+            <p>step into the infinite and discover what lies beyond.</p>
+            <a onclick="gotoexplore()" class="explore-btn">START EXPLORING ➔</a>
+        </div>
+    </section>
+
+    <section id="explore">
+        <h2>WHERE DO YOU WANT TO GO?</h2>
+        <p>Choose a destination and begin your journey.</p>
+
+        <div class="planets-container">
+            <div class="planets">
+                <img src="images/mars.jpg" alt="Mars">
+                <h3>MARS</h3>
+                <p>The Red Frontier</p>
+                <a class="entermars-btn" onclick="gotomars()">ENTER ➔</a>
+            </div>
+
+            <div class="planets locked">
+                <img src="images/andromeda.jpeg" alt="Andromeda Galaxy">
+                <h3>ANDROMEDA</h3>
+                <p>2.5M Light Years</p>
+                <a class="locked-btn">COMING SOON</a>
+            </div>
+
+            <div class="planets locked">
+                <img src="images/titan.jpeg" alt="Titan">
+                <h3>TITAN</h3>
+                <p>The Unknown</p>
+                <a class="locked-btn">COMING SOON</a>
+            </div>
+
+            <div class="planets locked">
+                <img src="images/europa.png" alt="Europa">
+                <h3>EUROPA</h3>
+                <p>Ocean World</p>
+                <a class="locked-btn">COMING SOON</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="entermars">
+        <div class="mars-destination">
+            <h2>DESTINATION</h2>
+            <h3>MARS</h3>
+            <h4>The Red Frontier</h4>
+            <p>Mars is the fourth planet from the Sun and one of the most explored</p>
+            <p>worlds beyond Earth. Its iron-rich surface gives it its distinctive red appearance.</p>
+
+            <a onclick="gotomissionmars()" class="missionmars-btn">START MISSION</a>
+
+            <div class="mars-info">
+                <div class="info-item">
+                    <span class="info-icon">⌖</span>
+                    <div>
+                        <h5>DISTANCE</h5>
+                        <p>225.0M KM</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-icon">◷</span>
+                    <div>
+                        <h5>TRAVEL TIME</h5>
+                        <p>7 MONTHS</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-icon">◉</span>
+                    <div>
+                        <h5>TYPE</h5>
+                        <p>PLANET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="missionmars">
+        <h2>MISSIONS</h2>
+        <h3>CHOOSE YOUR MISSION</h3>
+        <p>Each mission is a step closer to the unknown.</p>
+
+        <div class="mm-container">
+            <div class="mm">
+                <h2>MISSION 01</h2>
+                <h3>Mars Reconnaissance</h3>
+                <img src="images/mm1.jpeg" alt="Mars Reconnaissance">
+                <p>Study the surface and uncover hidden secrets.</p>
+                <a onclick="gotomm1()" class="mission1-btn">VIEW</a>
+            </div>
+
+            <div class="mm locked-mission">
+                <h2>MISSION 02</h2>
+                <h3>Mars Rover Survey</h3>
+                <img src="images/mm2.webp" alt="Mars Rover Survey">
+                <p>Explore the terrain and collect surface data.</p>
+                <a class="locked-btn">LOCKED</a>
+            </div>
+
+            <div class="mm locked-mission">
+                <h2>MISSION 03</h2>
+                <h3>Mars Atmosphere</h3>
+                <img src="images/mm3.jpg" alt="Mars Atmosphere">
+                <p>Analyze the atmosphere and weather conditions.</p>
+                <a class="locked-btn">LOCKED</a>
+            </div>
+
+            <div class="mm locked-mission">
+                <h2>MISSION 04</h2>
+                <h3>Mars Life Search</h3>
+                <img src="images/mm4.jpg" alt="Mars Life Search">
+                <p>Search for signs of ancient microbial life.</p>
+                <a class="locked-btn">LOCKED</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="mm1">
+        <div class="marsmm1bg">
+            <h2>MISSION 01</h2>
+            <h3>MARS RECONNAISSANCE</h3>
+            <p>Objective : Reach Mars and collect surface data.</p>
+        </div>
+
+        <div class="mm1-content">
+            <div class="spacecraft mission-choice-box">
+                <div class="mm1-choice">
+                    <h2>SELECT YOUR ROUTE</h2>
+                    <p>Your spacecraft has limited fuel.<br>Which route do you want to take?</p>
+
+                    <div class="mm1routes">
+                        <span class="route-icon">○</span>
+                        <div>
+                            <p>A. Direct Route<br>Faster, but uses more fuel.</p>
+                        </div>
+                    </div>
+
+                    <div class="mm1routes">
+                        <span class="route-icon">○</span>
+                        <div>
+                            <p>B. Gravity Assist<br>Slower, but saves 10% fuel.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spacecraft-side">
+                    <img src="images/spacecraft.jpeg" class="spacecraft-img" alt="Spacecraft">
+                    <a onclick="gotoconfirmmm1()" class="confirmmm1-btn">CONFIRM CHOICE</a>
+                </div>
+            </div>
+
+            <div class="spacecraft mission-info-box">
+                <h2>MISSION INFO</h2>
+
+                <div class="missioninfo">
+                    <span class="missioninfo-icon">⛽</span>
+                    <div>
+                        <h5>FUEL</h5>
+                        <p>70%</p>
+                    </div>
+                </div>
+
+                <div class="missioninfo">
+                    <span class="missioninfo-icon">↔</span>
+                    <div>
+                        <h5>DISTANCE</h5>
+                        <p>225 MILLION KM</p>
+                    </div>
+                </div>
+
+                <div class="missioninfo">
+                    <span class="missioninfo-icon">◷</span>
+                    <div>
+                        <h5>TIME</h5>
+                        <p>6–9 MONTHS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mission-confirm">
+        <div class="confirm-content">
+            <p>MISSION STATUS</p>
+            <h2>ROUTE CONFIRMED</h2>
+            <h3>READY FOR LAUNCH</h3>
+            <span class="confirm-line"></span>
+            <p>Your spacecraft systems are ready. Your Mars reconnaissance mission can now begin.</p>
+            <a onclick="gotoexplore()" class="launch-btn">RETURN TO EXPLORE ➔</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-content">
+            <p>ABOUT OUTBOUND</p>
+            <h2>EXPLORE BEYOND</h2>
+            <p>Outbound is an interactive space exploration experience created to bring distant worlds and future missions together in one journey.</p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

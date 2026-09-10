@@ -1,0 +1,786 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #020B18;
+}
+
+#explore,
+#entermars,
+#missionmars,
+#mm1,
+#mission-confirm,
+#about {
+    scroll-margin-top: 70px;
+}
+
+.navbar {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #03080E;
+    border-bottom: 0.2px solid #c7d2e8;
+    z-index: 1000;
+}
+
+.navbar h4 {
+    color: #c7d2e8;
+    font-family: "Orbitron", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    margin-left: 80px;
+}
+
+.navlinks {
+    display: flex;
+    gap: 40px;
+    margin-right: 50px;
+    margin-left: auto;
+}
+
+.navlinks a {
+    color: lightblue;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navlinks a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.top {
+    height: 600px;
+    background-image: url("images/earth bg.jpeg");
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.top h1 {
+    background: linear-gradient(90deg, #ffffff, #7dd3fc, #818cf8, #c084fc);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Orbitron", sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.05;
+    margin: 0 0 30px;
+    padding-top: 90px;
+    padding-left: 80px;
+    letter-spacing: 3px;
+}
+
+.top h3 {
+    color: lightblue;
+    font-family: "Orbitron", sans-serif;
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 0.05;
+    margin: 30px 0;
+    padding-left: 80px;
+    letter-spacing: 3px;
+}
+
+.top h2 {
+    color: #c7d2e8;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.6;
+    padding-left: 80px;
+    margin-top: 50px;
+    letter-spacing: 2px;
+}
+
+.top p {
+    color: aliceblue;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    padding-left: 80px;
+}
+
+.explore-btn,
+.missionmars-btn,
+.confirmmm1-btn,
+.launch-btn {
+    display: inline-block;
+    border: 1px solid lightskyblue;
+    text-decoration: none;
+    background: transparent;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 2px;
+    letter-spacing: 3px;
+}
+
+.explore-btn {
+    padding: 14px 28px;
+    margin-left: 80px;
+    margin-top: 50px;
+}
+
+.explore-btn:hover,
+.missionmars-btn:hover,
+.confirmmm1-btn:hover,
+.launch-btn:hover {
+    background: lightblue;
+    color: black;
+    transform: translateY(-3px);
+}
+
+#explore {
+    display: none;
+    min-height: 600px;
+    background-color: #020B18;
+    background-image: url("images/space bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 50px;
+}
+
+#explore > h2 {
+    margin: 0;
+    padding-top: 80px;
+    color: aliceblue;
+    font-family: "Orbitron", sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+#explore > p {
+    margin: 0;
+    color: aliceblue;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    padding-top: 20px;
+    letter-spacing: 2px;
+}
+
+.planets-container {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    padding-top: 40px;
+}
+
+.planets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 210px;
+    height: 330px;
+    border: 1px solid lightskyblue;
+    padding: 15px;
+    border-radius: 15px;
+    background: rgba(2, 11, 24, 0.55);
+}
+
+.planets img {
+    width: 170px;
+    height: 200px;
+    object-fit: contain;
+    display: block;
+}
+
+.planets h3 {
+    text-align: center;
+    color: antiquewhite;
+    font-family: "Orbitron", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin: 10px 0 0;
+}
+
+.planets p {
+    text-align: center;
+    color: antiquewhite;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    padding: 0 0 12px;
+}
+
+.entermars-btn,
+.locked-btn {
+    display: inline-block;
+    border: 1px solid lightskyblue;
+    text-decoration: none;
+    background: transparent;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    border-radius: 2px;
+    letter-spacing: 2px;
+    padding: 5px 9px;
+}
+
+.entermars-btn:hover {
+    background: lightblue;
+    color: black;
+    transform: translateY(-3px);
+}
+
+.locked {
+    opacity: 0.62;
+}
+
+.locked .locked-btn,
+.locked-mission .locked-btn {
+    color: #8fa6b8;
+    border-color: #52718b;
+    cursor: default;
+}
+
+#entermars {
+    display: none;
+    height: 600px;
+    background-color: #020B18;
+    background-image: url("images/mars bg.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.mars-destination {
+    padding-top: 1px;
+}
+
+#entermars h2 {
+    margin: 0;
+    padding: 60px 60px 0;
+    color: aliceblue;
+    font-family: "Orbitron", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+#entermars h2::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: lightskyblue;
+    margin-top: 4px;
+}
+
+#entermars h3 {
+    margin: 0;
+    padding-left: 60px;
+    color: aliceblue;
+    font-family: "Orbitron", sans-serif;
+    font-size: 65px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+#entermars h4 {
+    margin: 15px 0 0;
+    padding-left: 60px;
+    color: aliceblue;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+
+#entermars p {
+    color: aliceblue;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    padding-left: 60px;
+    margin-top: 10px;
+}
+
+.missionmars-btn {
+    padding: 8px 15px;
+    margin-left: 60px;
+    margin-top: 25px;
+}
+
+.mars-info {
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+    margin-top: 45px;
+    margin-left: 60px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    width: 180px;
+}
+
+.info-icon {
+    font-size: 30px;
+    color: lightskyblue;
+    padding-right: 12px;
+    flex-shrink: 0;
+}
+
+.info-item h5 {
+    color: #c7d2e8;
+    font-family: "Orbitron", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.info-item p {
+    color: white;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin: 5px 0 0;
+    padding-left: 0 !important;
+    white-space: nowrap;
+}
+
+#missionmars {
+    display: none;
+    min-height: 600px;
+    background-image: url("images/space bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 50px;
+}
+
+#missionmars > h2 {
+    margin: 0;
+    padding-left: 60px;
+    padding-top: 40px;
+    color: aliceblue;
+    font-family: "Orbitron", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+#missionmars > h3 {
+    margin: 10px 0 0;
+    padding-left: 60px;
+    color: aliceblue;
+    font-family: "Orbitron", sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 3px;
+}
+
+#missionmars > p {
+    color: aliceblue;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    padding-left: 60px;
+    margin-top: 10px;
+}
+
+.mm-container {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    padding-top: 35px;
+}
+
+.mm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 220px;
+    height: 315px;
+    border: 1px solid lightskyblue;
+    padding: 15px;
+    border-radius: 15px;
+    background: rgba(2, 11, 24, 0.55);
+}
+
+.mm h2 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: antiquewhite;
+    letter-spacing: 3px;
+    margin: 5px 0 10px;
+}
+
+.mm h3 {
+    font-family: "Rajdhani", sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: antiquewhite;
+    text-align: center;
+    letter-spacing: 2px;
+    margin: 0 0 10px;
+}
+
+.mm p {
+    font-family: "Rajdhani", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: antiquewhite;
+    text-align: center;
+    letter-spacing: 1px;
+    margin: 10px 0;
+}
+
+.mm img {
+    width: 190px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.mission1-btn {
+    display: inline-block;
+    border: 1px solid lightskyblue;
+    text-decoration: none;
+    background: transparent;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    border-radius: 2px;
+    letter-spacing: 2px;
+    padding: 5px 12px;
+    margin-top: auto;
+}
+
+.mission1-btn:hover {
+    background: lightblue;
+    color: black;
+    transform: translateY(-3px);
+}
+
+.locked-mission {
+    opacity: 0.62;
+}
+
+#mm1 {
+    display: none;
+    min-height: 650px;
+    position: relative;
+    background-image: url("images/space bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 50px;
+}
+
+#mm1 > .marsmm1bg {
+    margin: 0;
+    height: 230px;
+    background-image: url("images/marsmm1.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.marsmm1bg h2 {
+    margin: 0;
+    padding-top: 55px;
+    padding-left: 30px;
+    color: aliceblue;
+    font-family: "Orbitron", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+}
+
+.marsmm1bg h3 {
+    padding-left: 30px;
+    color: aliceblue;
+    font-family: "Orbitron", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin: 20px 0 0;
+}
+
+.marsmm1bg p {
+    color: aliceblue;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding-left: 30px;
+    margin-top: 20px;
+}
+
+.mm1-content {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+}
+
+.mm1-content > .spacecraft {
+    border: 1px solid #155b91;
+    background-color: rgba(2, 11, 24, 0.88);
+    padding: 25px 30px;
+}
+
+.mission-choice-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex: 3;
+    min-height: 330px;
+}
+
+.mission-info-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex: 1;
+    min-height: 330px;
+}
+
+.mm1-choice {
+    display: flex;
+    flex-direction: column;
+}
+
+.mm1-choice > h2,
+.mission-info-box > h2 {
+    margin: 0 0 18px;
+    color: aliceblue;
+    font-family: "Orbitron", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.mm1-choice > p {
+    color: aliceblue;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    margin: 0 0 10px;
+}
+
+.mm1routes {
+    display: flex;
+    align-items: center;
+    width: 210px;
+    min-height: 55px;
+    border: 1px solid #17639c;
+    border-radius: 4px;
+    margin-top: 8px;
+    padding: 6px 10px;
+}
+
+.route-icon {
+    color: lightskyblue;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.mm1routes p {
+    margin: 0;
+    padding: 0;
+    color: aliceblue;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    line-height: 1.3;
+}
+
+.spacecraft-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 240px;
+}
+
+.spacecraft-img {
+    width: 220px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.confirmmm1-btn {
+    padding: 8px 15px;
+    margin-top: 15px;
+    font-size: 11px;
+}
+
+.missioninfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.missioninfo-icon {
+    color: lightskyblue;
+    font-size: 22px;
+    margin-right: 12px;
+}
+
+.missioninfo h5 {
+    margin: 0;
+    color: #c7d2e8;
+    font-family: "Orbitron", sans-serif;
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.missioninfo p {
+    margin: 3px 0 0;
+    padding: 0;
+    color: white;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+#mission-confirm {
+    display: none;
+    min-height: 450px;
+    background-image: url("images/space bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.confirm-content {
+    padding-top: 95px;
+    margin: 0 auto;
+    width: 520px;
+}
+
+.confirm-content > p:first-child {
+    color: lightskyblue;
+    font-family: "Orbitron", sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin: 0 0 20px;
+}
+
+.confirm-content h2 {
+    color: aliceblue;
+    font-family: "Orbitron", sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.confirm-content h3 {
+    color: #c7d2e8;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    margin: 15px 0;
+}
+
+.confirm-line {
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: lightskyblue;
+    margin: 25px auto;
+}
+
+.confirm-content p:last-of-type {
+    color: aliceblue;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    line-height: 1.6;
+}
+
+.launch-btn {
+    padding: 10px 18px;
+    margin-top: 25px;
+}
+
+#about {
+    display: none;
+    min-height: 400px;
+    background-image: url("images/space bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.about-content {
+    width: 550px;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+.about-content p:first-child {
+    color: lightskyblue;
+    font-family: "Orbitron", sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.about-content h2 {
+    color: aliceblue;
+    font-family: "Orbitron", sans-serif;
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+
+.about-content p:last-child {
+    color: #c7d2e8;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    line-height: 1.7;
+}
