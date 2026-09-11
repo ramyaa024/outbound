@@ -94,7 +94,44 @@ After selecting a route, users can confirm their choice and receive a mission st
 * Selected route
 
 ---
+## 📸 Screenshots
 
+### Home Page
+<img width="1349" height="594" alt="image" src="https://github.com/user-attachments/assets/29021ef6-4c84-400a-8420-55b099a46bb9" />
+
+The landing page introduces the Outbound space exploration experience.
+
+### Destination Selection
+<img width="1344" height="600" alt="image" src="https://github.com/user-attachments/assets/54874307-f6c8-464b-9383-9e7d7c5f947c" />
+
+Users can explore different destinations and select Mars to begin their journey.
+
+### Mars Exploration
+<img width="1349" height="597" alt="image" src="https://github.com/user-attachments/assets/59665f20-dda6-4f1d-abc9-9a19da66a191" />
+
+The Mars section displays destination information and mission details.
+
+### Mission Selection
+<img width="1348" height="593" alt="image" src="https://github.com/user-attachments/assets/5318f18f-9b3f-4889-8947-e23486f6f4fa" />
+
+Users can choose from different Mars missions, with Mission 01 currently available.
+
+### Route Selection
+<img width="1350" height="596" alt="image" src="https://github.com/user-attachments/assets/54df826f-ab80-4024-8694-d130ddd27ca3" />
+
+Users can choose between a Direct Route and a Gravity-Assisted Route based on fuel usage.
+
+### Mission Confirmation
+<img width="1343" height="589" alt="image" src="https://github.com/user-attachments/assets/2b435270-0590-4c4d-a464-a618328d1f04" />
+
+The selected route is confirmed and the mission is shown as ready for launch.
+
+### About Outbound
+<img width="1349" height="594" alt="image" src="https://github.com/user-attachments/assets/47927708-ea2e-4d5c-97cb-d1e26e6ce348" />
+
+A short introduction explaining the purpose of the Outbound space exploration experience.
+
+---
 ## ⚛️ React Implementation
 
 The application uses React state to control the user journey.
