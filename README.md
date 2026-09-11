@@ -280,4 +280,4 @@ Possible future improvements include:
 
 ---
 
-# **Explore Beyond. Go Outbound.**
+Explore Beyond. Go Outbound.
