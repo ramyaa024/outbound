@@ -27,7 +27,6 @@ function App() {
 
   return (
     <>
-      {/* NAVBAR */}
       <nav className="navbar">
         <h4>OUTBOUND</h4>
 
@@ -38,7 +37,6 @@ function App() {
         </div>
       </nav>
 
-      {/* HOME */}
       <section className="top" id="home">
         <div>
           <h1>EXPLORE THE</h1>
@@ -57,7 +55,6 @@ function App() {
         </div>
       </section>
 
-      {/* EXPLORE */}
       <section
         id="explore"
         className={
@@ -109,7 +106,6 @@ function App() {
         </div>
       </section>
 
-      {/* MARS */}
       <section
         id="entermars"
         className={
@@ -167,7 +163,6 @@ function App() {
         </div>
       </section>
 
-      {/* MISSIONS */}
       <section
         id="missionmars"
         className={
@@ -252,7 +247,6 @@ function App() {
         </div>
       </section>
 
-      {/* MISSION 01 */}
       <section id="mm1" style={{
         display: visibleSections.includes("mm1") ? "block" : "none",}}
 >
@@ -275,7 +269,6 @@ function App() {
                 Which route do you want to take?
               </p>
 
-              {/* DIRECT ROUTE */}
               <div
                 className={`mm1routes ${
                   selectedRoute === "DIRECT ROUTE"
@@ -299,7 +292,6 @@ function App() {
                 </div>
               </div>
 
-              {/* GRAVITY ASSIST */}
               <div
                 className={`mm1routes ${
                   selectedRoute ===
@@ -346,7 +338,6 @@ function App() {
             </div>
           </div>
 
-          {/* MISSION INFO */}
           <div className="spacecraft mission-info-box">
             <h2>MISSION INFO</h2>
 
@@ -380,7 +371,6 @@ function App() {
         </div>
       </section>
 
-      {/* CONFIRMATION */}
       <section
         id="mission-confirm"
         className={
@@ -415,7 +405,6 @@ function App() {
         </div>
       </section>
 
-      {/* ABOUT */}
       <section
         id="about"
         className={

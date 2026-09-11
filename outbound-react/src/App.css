@@ -1,4 +1,3 @@
-
 html {
     scroll-behavior: smooth;
 }
@@ -75,10 +74,7 @@ body {
 }
 
 .top h1 {
-    background: linear-gradient(90deg, #ffffff, #7dd3fc, #818cf8, #c084fc);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color:aliceblue;
     font-family: "Orbitron", sans-serif;
     font-size: 30px;
     font-weight: 500;
@@ -138,12 +134,6 @@ body {
     letter-spacing: 3px;
 }
 
-.explore-btn {
-    padding: 14px 28px;
-    margin-left: 80px;
-    margin-top: 50px;
-}
-
 .explore-btn:hover,
 .missionmars-btn:hover,
 .confirmmm1-btn:hover,
@@ -151,6 +141,11 @@ body {
     background: lightblue;
     color: black;
     transform: translateY(-3px);
+}
+.explore-btn {
+    padding: 14px 28px;
+    margin-left: 80px;
+    margin-top: 50px;
 }
 
 #explore {
