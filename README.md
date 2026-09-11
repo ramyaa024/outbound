@@ -103,32 +103,37 @@ After selecting a route, users can confirm their choice and receive a mission st
 ## Screenshots
 
 ### Home Page
+<img width="1349" height="594" alt="image" src="https://github.com/user-attachments/assets/c183ed0f-2430-4337-900d-1fa348c8c0b0" />
 
 The landing page introduces the Outbound space exploration experience.
 
 ### Destination Selection
+<img width="1344" height="600" alt="image" src="https://github.com/user-attachments/assets/a846a14b-6a7e-4584-8c7b-6601545d78b6" />
 
 Users can explore different destinations and select Mars to begin their journey.
 
 ### Mars Exploration
+<img width="1349" height="597" alt="image" src="https://github.com/user-attachments/assets/c7096dd6-61ad-4ddc-a08f-94cb5110a097" />
 
 The Mars section displays destination information and mission details.
 
 ### Mission Selection
+<img width="1348" height="593" alt="image" src="https://github.com/user-attachments/assets/27dfd201-4ed1-4067-987f-efd42a2a550f" />
 
 Users can choose from different Mars missions, with Mission 01 currently available.
 
 ### Route Selection
+<img width="1350" height="596" alt="image" src="https://github.com/user-attachments/assets/c9eecab6-5420-462b-bcee-2c1766db59bf" />
 
 Users can choose between a Direct Route and a Gravity-Assisted Route based on fuel usage.
 
 ### Mission Confirmation
+<img width="1343" height="589" alt="image" src="https://github.com/user-attachments/assets/a2abb60a-c694-4a76-8e44-dc253b1e9846" />
 
 The selected route is confirmed and the mission is shown as ready for launch.
 
 ### About Outbound
-
-A short introduction explaining the purpose of the Outbound space exploration experience.
+<img width="1349" height="594" alt="image" src="https://github.com/user-attachments/assets/1e818f22-ce8e-42d2-bc46-b9ea1b59127c" />
 
 ---
 
