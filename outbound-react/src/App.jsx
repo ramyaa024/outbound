@@ -1,431 +1,766 @@
 import { useState } from "react";
-import "./App.css";
 
 function App() {
-  const [visibleSections, setVisibleSections] = useState(["home"]);
-  const [selectedRoute, setSelectedRoute] = useState("");
+  const [currentPage, setCurrentPage] = useState("home");
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedDestination, setSelectedDestination] = useState(null);
+  const [selectedMission, setSelectedMission] = useState(null);
+  const [checkedItems, setCheckedItems] = useState([]);
 
-  const goToSection = (section) => {
-    setVisibleSections((prev) => {
-      if (prev.includes(section)) {
-        return prev;
-      }
+  const destinations = [
+    {
+      number: "01",
+      name: "THE MOON",
+      distance: "384,400 KM FROM EARTH",
+      risk: "LOW RISK",
+      className: "moon",
+    },
+    {
+      number: "02",
+      name: "MARS",
+      distance: "225 MILLION KM FROM EARTH",
+      risk: "HIGH RISK",
+      className: "mars",
+    },
+    {
+      number: "03",
+      name: "EUROPA",
+      distance: "628 MILLION KM FROM EARTH",
+      risk: "EXTREME",
+      className: "europa",
+    },
+    {
+      number: "04",
+      name: "TITAN",
+      distance: "1.2 BILLION KM FROM EARTH",
+      risk: "EXTREME",
+      className: "titan",
+    },
+  ];
 
-      return [...prev, section];
-    });
+  const missions = [
+    {
+      number: "01",
+      name: "RESEARCH",
+      description:
+        "Study unexplored environments, collect scientific data and expand our understanding of space.",
+    },
+    {
+      number: "02",
+      name: "EXPLORATION",
+      description:
+        "Travel beyond known boundaries and discover places humanity has never explored.",
+    },
+    {
+      number: "03",
+      name: "COLONIZATION",
+      description:
+        "Prepare a new world for future human settlements beyond Earth.",
+    },
+    {
+      number: "04",
+      name: "TOURISM",
+      description:
+        "Experience the universe from a completely different perspective.",
+    },
+  ];
 
-    setTimeout(() => {
-      document.getElementById(section)?.scrollIntoView({
-        behavior: "smooth",
-      });
-    }, 100);
+  const checklist = [
+    {
+      id: 1,
+      title: "OXYGEN SYSTEM",
+      description: "Life support systems operational",
+    },
+    {
+      id: 2,
+      title: "FUEL SYSTEM",
+      description: "Fuel reserves confirmed",
+    },
+    {
+      id: 3,
+      title: "COMMUNICATION",
+      description: "Deep-space communication online",
+    },
+    {
+      id: 4,
+      title: "NAVIGATION",
+      description: "Flight path calculated",
+    },
+    {
+      id: 5,
+      title: "CREW SYSTEMS",
+      description: "Crew preparation complete",
+    },
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide(
+      (currentSlide + 1) % destinations.length
+    );
   };
 
-  const selectRoute = (route) => {
-    setSelectedRoute(route);
+  const previousSlide = () => {
+    setCurrentSlide(
+      (currentSlide - 1 + destinations.length) %
+        destinations.length
+    );
   };
+
+  const selectDestination = (destination) => {
+    setSelectedDestination(destination);
+    setCurrentPage("mission");
+  };
+
+  const selectMission = (mission) => {
+    setSelectedMission(mission);
+    setCurrentPage("preparation");
+  };
+
+  const toggleChecklist = (id) => {
+    if (checkedItems.includes(id)) {
+      setCheckedItems(
+        checkedItems.filter((item) => item !== id)
+      );
+    } else {
+      setCheckedItems([...checkedItems, id]);
+    }
+  };
+
+  const beginFinalCheck = () => {
+    if (checkedItems.length === checklist.length) {
+      setCurrentPage("launch");
+    }
+  };
+
+  const startLaunch = () => {
+    setCurrentPage("journey");
+  };
+
+  const visibleDestinations = [
+    destinations[currentSlide],
+    destinations[(currentSlide + 1) % destinations.length],
+  ];
 
   return (
-    <>
-      <nav className="navbar">
-        <h4>OUTBOUND</h4>
+    <div className="app">
 
-        <div className="navlinks">
-          <a onClick={() => goToSection("explore")}>EXPLORE</a>
-          <a onClick={() => goToSection("missionmars")}>MISSIONS</a>
-          <a onClick={() => goToSection("about")}>ABOUT</a>
+      {/* ================= NAVBAR ================= */}
+
+      <nav className="navbar">
+        <div
+          className="logo"
+          onClick={() => setCurrentPage("home")}
+        >
+          OUTBOUND
+        </div>
+
+        <div className="nav-links">
+          <button onClick={() => setCurrentPage("home")}>
+            HOME
+          </button>
+
+          <button
+            onClick={() => setCurrentPage("destinations")}
+          >
+            DESTINATIONS
+          </button>
+
+          <button
+            onClick={() => setCurrentPage("mission")}
+          >
+            MISSION
+          </button>
+
+          <button
+            onClick={() => setCurrentPage("journey")}
+          >
+            JOURNEY
+          </button>
         </div>
       </nav>
 
-      <section className="top" id="home">
-        <div>
-          <h1>EXPLORE THE</h1>
-          <h3>UNIVERSE</h3>
-          <h2>Beyond our World</h2>
 
-          <p>From distant planets to mysterious galaxies,</p>
-          <p>step into the infinite and discover what lies beyond.</p>
+      {/* ================= HOME ================= */}
 
-          <a
-            onClick={() => goToSection("explore")}
-            className="explore-btn"
-          >
-            START EXPLORING ➔
-          </a>
-        </div>
-      </section>
+      {currentPage === "home" && (
+        <main className="screen hero" id="home">
 
-      <section
-        id="explore"
-        className={
-          visibleSections.includes("explore")
-            ? "section-visible"
-            : "section-hidden"
-        }
-      >
-        <h2>WHERE DO YOU WANT TO GO?</h2>
-        <p>Choose a destination and begin your journey.</p>
+          <div className="hero-content">
 
-        <div className="planets-container">
-          <div className="planets">
-            <img src="/images/mars.jpg" alt="Mars" />
-            <h3>MARS</h3>
-            <p>The Red Frontier</p>
+            <p className="eyebrow">
+              SPACE TRAVEL INITIATIVE
+            </p>
 
-            <a
-              className="entermars-btn"
-              onClick={() => goToSection("entermars")}
+            <h1>
+              YOUR JOURNEY
+              <br />
+              <span>BEYOND EARTH</span>
+            </h1>
+
+            <p className="hero-text">
+              Space is no longer unreachable. Choose your
+              destination, prepare your mission,
+              <br />
+              and begin your journey beyond Earth.
+            </p>
+
+            <button
+              className="primary-btn"
+              onClick={() => setCurrentPage("destinations")}
             >
-              ENTER ➔
-            </a>
+              PLAN YOUR JOURNEY
+              <span>→</span>
+            </button>
+
           </div>
 
-          <div className="planets locked">
-            <img
-              src="/images/andromeda.jpeg"
-              alt="Andromeda Galaxy"
-            />
-            <h3>ANDROMEDA</h3>
-            <p>2.5M Light Years</p>
-            <a className="locked-btn">COMING SOON</a>
+          <div className="scroll-indicator">
+            BEGIN YOUR JOURNEY
+            <span>↓</span>
           </div>
 
-          <div className="planets locked">
-            <img src="/images/titan.jpeg" alt="Titan" />
-            <h3>TITAN</h3>
-            <p>The Unknown</p>
-            <a className="locked-btn">COMING SOON</a>
-          </div>
+        </main>
+      )}
 
-          <div className="planets locked">
-            <img src="/images/europa.png" alt="Europa" />
-            <h3>EUROPA</h3>
-            <p>Ocean World</p>
-            <a className="locked-btn">COMING SOON</a>
-          </div>
-        </div>
-      </section>
 
-      <section
-        id="entermars"
-        className={
-          visibleSections.includes("entermars")
-            ? "section-visible"
-            : "section-hidden"
-        }
-      >
-        <div className="mars-destination">
-          <h2>DESTINATION</h2>
-          <h3>MARS</h3>
-          <h4>The Red Frontier</h4>
+      {/* ================= DESTINATIONS ================= */}
 
-          <p>
-            Mars is the fourth planet from the Sun and one of the most explored
-          </p>
+      {currentPage === "destinations" && (
+        <main
+          className="screen destinations"
+          id="destinations"
+        >
 
-          <p>
-            worlds beyond Earth. Its iron-rich surface gives it its distinctive
-            red appearance.
-          </p>
+          <div className="section-heading">
 
-          <a
-            onClick={() => goToSection("missionmars")}
-            className="missionmars-btn"
-          >
-            START MISSION
-          </a>
-
-          <div className="mars-info">
-            <div className="info-item">
-              <span className="info-icon">⌖</span>
-              <div>
-                <h5>DISTANCE</h5>
-                <p>225.0M KM</p>
-              </div>
-            </div>
-
-            <div className="info-item">
-              <span className="info-icon">◷</span>
-              <div>
-                <h5>TRAVEL TIME</h5>
-                <p>7 MONTHS</p>
-              </div>
-            </div>
-
-            <div className="info-item">
-              <span className="info-icon">◉</span>
-              <div>
-                <h5>TYPE</h5>
-                <p>PLANET</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="missionmars"
-        className={
-          visibleSections.includes("missionmars")
-            ? "section-visible"
-            : "section-hidden"
-        }
-      >
-        <h2>MISSIONS</h2>
-        <h3>CHOOSE YOUR MISSION</h3>
-        <p>Each mission is a step closer to the unknown.</p>
-
-        <div className="mm-container">
-          <div className="mm">
-            <h2>MISSION 01</h2>
-            <h3>Mars Reconnaissance</h3>
-
-            <img
-              src="/images/mm1.jpeg"
-              alt="Mars Reconnaissance"
-            />
-
-            <p>
-              Study the surface and uncover hidden secrets.
+            <p className="eyebrow">
+              STEP 01
             </p>
 
-            <a
-              onClick={() => goToSection("mm1")}
-              className="mission1-btn"
+            <h2>
+              CHOOSE YOUR
+              <span> DESTINATION</span>
+            </h2>
+
+            <p>
+              Every journey begins with a destination.
+              Where will you go?
+            </p>
+
+          </div>
+
+
+          <div className="destination-slider">
+
+            <button
+              className="slider-arrow"
+              onClick={previousSlide}
             >
-              VIEW
-            </a>
+              ←
+            </button>
+
+
+            <div className="destination-cards">
+
+              {visibleDestinations.map(
+                (destination) => (
+
+                  <div
+                    className="destination-card"
+                    key={destination.number}
+                    onClick={() =>
+                      selectDestination(destination)
+                    }
+                  >
+
+                    <div
+                      className={`destination-image ${destination.className}`}
+                    >
+                      <span>
+                        {destination.number}
+                      </span>
+                    </div>
+
+
+                    <div className="destination-info">
+
+                      <h3>
+                        {destination.name}
+                      </h3>
+
+                      <p>
+                        {destination.distance}
+                      </p>
+
+                      <div className="destination-bottom">
+
+                        <span>
+                          {destination.risk}
+                        </span>
+
+                        <button
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            selectDestination(destination);
+                          }}
+                        >
+                          SELECT →
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                )
+              )}
+
+            </div>
+
+
+            <button
+              className="slider-arrow"
+              onClick={nextSlide}
+            >
+              →
+            </button>
+
           </div>
 
-          <div className="mm locked-mission">
-            <h2>MISSION 02</h2>
-            <h3>Mars Rover Survey</h3>
 
-            <img
-              src="/images/mm2.webp"
-              alt="Mars Rover Survey"
-            />
+          <div className="slide-indicators">
 
-            <p>
-              Explore the terrain and collect surface data.
+            {destinations.map(
+              (destination, index) => (
+
+                <span
+                  key={destination.number}
+                  className={
+                    index === currentSlide
+                      ? "indicator active"
+                      : "indicator"
+                  }
+                  onClick={() =>
+                    setCurrentSlide(index)
+                  }
+                ></span>
+
+              )
+            )}
+
+          </div>
+
+        </main>
+      )}
+
+
+      {/* ================= MISSION ================= */}
+
+      {currentPage === "mission" && (
+        <main
+          className="screen mission"
+          id="mission"
+        >
+
+          <div className="section-heading">
+
+            <p className="eyebrow">
+              STEP 02
             </p>
 
-            <a className="locked-btn">LOCKED</a>
-          </div>
-
-          <div className="mm locked-mission">
-            <h2>MISSION 03</h2>
-            <h3>Mars Atmosphere</h3>
-
-            <img
-              src="/images/mm3.jpg"
-              alt="Mars Atmosphere"
-            />
+            <h2>
+              DEFINE YOUR
+              <span> MISSION</span>
+            </h2>
 
             <p>
-              Analyze the atmosphere and weather conditions.
+              {selectedDestination
+                ? `Destination selected: ${selectedDestination.name}. What is the purpose of your journey?`
+                : "Your destination is chosen. What is the purpose of your journey?"}
             </p>
 
-            <a className="locked-btn">LOCKED</a>
           </div>
 
-          <div className="mm locked-mission">
-            <h2>MISSION 04</h2>
-            <h3>Mars Life Search</h3>
 
-            <img
-              src="/images/mm4.jpg"
-              alt="Mars Life Search"
-            />
+          <div className="mission-grid">
 
-            <p>
-              Search for signs of ancient microbial life.
-            </p>
-
-            <a className="locked-btn">LOCKED</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="mm1" style={{
-        display: visibleSections.includes("mm1") ? "block" : "none",}}
->
-        <div className="marsmm1bg">
-          <h2>MISSION 01</h2>
-          <h3>MARS RECONNAISSANCE</h3>
-          <p>
-            Objective : Reach Mars and collect surface data.
-          </p>
-        </div>
-
-        <div className="mm1-content">
-          <div className="spacecraft mission-choice-box">
-            <div className="mm1-choice">
-              <h2>SELECT YOUR ROUTE</h2>
-
-              <p>
-                Your spacecraft has limited fuel.
-                <br />
-                Which route do you want to take?
-              </p>
+            {missions.map((mission) => (
 
               <div
-                className={`mm1routes ${
-                  selectedRoute === "DIRECT ROUTE"
-                    ? "selected"
-                    : ""
-                }`}
-                onClick={() => selectRoute("DIRECT ROUTE")}
+                className="mission-card"
+                key={mission.number}
               >
-                <span className="route-icon">
-                  {selectedRoute === "DIRECT ROUTE"
-                    ? "●"
-                    : "○"}
-                </span>
 
-                <div>
-                  <p>
-                    A. Direct Route
-                    <br />
-                    Faster, but uses more fuel.
-                  </p>
+                <div className="mission-number">
+                  {mission.number}
                 </div>
+
+                <h3>
+                  {mission.name}
+                </h3>
+
+                <p>
+                  {mission.description}
+                </p>
+
+                <button
+                  onClick={() =>
+                    selectMission(mission)
+                  }
+                >
+                  SELECT MISSION →
+                </button>
+
               </div>
 
-              <div
-                className={`mm1routes ${
-                  selectedRoute ===
-                  "GRAVITY-ASSISTED ROUTE"
-                    ? "selected"
-                    : ""
-                }`}
-                onClick={() =>
-                  selectRoute("GRAVITY-ASSISTED ROUTE")
-                }
-              >
-                <span className="route-icon">
-                  {selectedRoute ===
-                  "GRAVITY-ASSISTED ROUTE"
-                    ? "●"
-                    : "○"}
-                </span>
+            ))}
 
-                <div>
-                  <p>
-                    B. Gravity Assist
-                    <br />
-                    Slower, but saves 10% fuel.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="spacecraft-side">
-              <img
-                src="/images/spacecraft.jpeg"
-                className="spacecraft-img"
-                alt="Spacecraft"
-              />
-
-              <a
-                onClick={() =>
-                  goToSection("mission-confirm")
-                }
-                className="confirmmm1-btn"
-              >
-                CONFIRM CHOICE
-              </a>
-            </div>
           </div>
 
-          <div className="spacecraft mission-info-box">
-            <h2>MISSION INFO</h2>
+        </main>
+      )}
 
-            <div className="missioninfo">
-              <span className="missioninfo-icon">⛽</span>
 
-              <div>
-                <h5>FUEL</h5>
-                <p>70%</p>
-              </div>
-            </div>
+      {/* ================= PREPARATION ================= */}
 
-            <div className="missioninfo">
-              <span className="missioninfo-icon">↔</span>
+      {currentPage === "preparation" && (
+        <main
+          className="screen preparation"
+          id="preparation"
+        >
 
-              <div>
-                <h5>DISTANCE</h5>
-                <p>225 MILLION KM</p>
-              </div>
-            </div>
+          <div className="section-heading">
 
-            <div className="missioninfo">
-              <span className="missioninfo-icon">◷</span>
+            <p className="eyebrow">
+              STEP 03
+            </p>
 
-              <div>
-                <h5>TIME</h5>
-                <p>6–9 MONTHS</p>
-              </div>
-            </div>
+            <h2>
+              PREPARE YOUR
+              <span> MISSION</span>
+            </h2>
+
+            <p>
+              {selectedMission
+                ? `${selectedMission.name} mission to ${
+                    selectedDestination?.name || "your destination"
+                  }. Complete all systems before launch.`
+                : "A successful journey requires everything to be ready before launch."}
+            </p>
+
           </div>
-        </div>
-      </section>
 
-      <section
-        id="mission-confirm"
-        className={
-          visibleSections.includes("mission-confirm")
-            ? "section-visible"
-            : "section-hidden"
-        }
-      >
-        <div className="confirm-content">
-          <p>MISSION STATUS</p>
 
-          <h2>ROUTE CONFIRMED</h2>
+          <div className="preparation-panel">
 
-          <h3>READY FOR LAUNCH</h3>
-          <p className="selected-route">
-            ROUTE: {selectedRoute || "NO ROUTE SELECTED"}
+            <div className="prep-header">
+
+              <div>
+
+                <p>
+                  MISSION STATUS
+                </p>
+
+                <h3>
+                  PRE-LAUNCH CHECKLIST
+                </h3>
+
+              </div>
+
+              <div className="status">
+                {checkedItems.length} / {checklist.length} READY
+              </div>
+
+            </div>
+
+
+            <div className="checklist">
+
+              {checklist.map((item) => (
+
+                <div
+                  className="check-item"
+                  key={item.id}
+                  onClick={() =>
+                    toggleChecklist(item.id)
+                  }
+                >
+
+                  <div
+                    className={
+                      checkedItems.includes(item.id)
+                        ? "check-box checked"
+                        : "check-box"
+                    }
+                  >
+                    {checkedItems.includes(item.id)
+                      ? "✓"
+                      : ""}
+                  </div>
+
+                  <div>
+
+                    <h4>
+                      {item.title}
+                    </h4>
+
+                    <p>
+                      {item.description}
+                    </p>
+
+                  </div>
+
+                </div>
+
+              ))}
+
+            </div>
+
+
+            <button
+              className="launch-btn"
+              onClick={beginFinalCheck}
+              disabled={
+                checkedItems.length !== checklist.length
+              }
+            >
+              {checkedItems.length === checklist.length
+                ? "CONTINUE TO LAUNCH"
+                : "BEGIN FINAL CHECK"}
+            </button>
+
+          </div>
+
+        </main>
+      )}
+
+
+      {/* ================= LAUNCH ================= */}
+
+      {currentPage === "launch" && (
+        <main className="screen launch">
+
+          <p className="eyebrow">
+            FINAL SEQUENCE
           </p>
 
-          <span className="confirm-line"></span>
+          <h2>
+            READY FOR
+            <span> LAUNCH?</span>
+          </h2>
 
           <p>
-            Your spacecraft systems are ready. Your Mars
-            reconnaissance mission can now begin.
+            Your destination is waiting.
           </p>
 
-          <a
-            onClick={() => goToSection("explore")}
-            className="launch-btn"
+
+          <div className="launch-details">
+
+            <div>
+              <span>
+                DESTINATION
+              </span>
+
+              <strong>
+                {selectedDestination?.name || "MARS"}
+              </strong>
+            </div>
+
+            <div>
+              <span>
+                MISSION
+              </span>
+
+              <strong>
+                {selectedMission?.name || "EXPLORATION"}
+              </strong>
+            </div>
+
+          </div>
+
+
+          <button
+            className="launch-main-btn"
+            onClick={startLaunch}
           >
-            RETURN TO EXPLORE ➔
-          </a>
+            INITIATE LAUNCH
+            <span>→</span>
+          </button>
+
+        </main>
+      )}
+
+
+      {/* ================= JOURNEY ================= */}
+
+      {currentPage === "journey" && (
+        <main
+          className="screen journey"
+          id="journey"
+        >
+
+          <div className="section-heading">
+
+            <p className="eyebrow">
+              STEP 04
+            </p>
+
+            <h2>
+              YOUR
+              <span> JOURNEY</span>
+            </h2>
+
+            <p>
+              Mission control is now active.
+            </p>
+
+          </div>
+
+
+          <div className="journey-dashboard">
+
+            <div className="dashboard-header">
+
+              <div>
+
+                <p>
+                  MISSION CONTROL
+                </p>
+
+                <h3>
+                  OUTBOUND-01
+                </h3>
+
+              </div>
+
+              <div className="live-status">
+                ● MISSION ACTIVE
+              </div>
+
+            </div>
+
+
+            <div className="mission-summary">
+
+              <div>
+                <span>
+                  DESTINATION
+                </span>
+
+                <strong>
+                  {selectedDestination?.name || "MARS"}
+                </strong>
+              </div>
+
+              <div>
+                <span>
+                  MISSION
+                </span>
+
+                <strong>
+                  {selectedMission?.name || "EXPLORATION"}
+                </strong>
+              </div>
+
+            </div>
+
+
+            <div className="progress-area">
+
+              <div className="planet earth">
+                EARTH
+              </div>
+
+              <div className="journey-line">
+                <div className="journey-progress"></div>
+              </div>
+
+              <div className="planet destination">
+                {selectedDestination?.name || "MARS"}
+              </div>
+
+            </div>
+
+
+            <div className="stats">
+
+              <div>
+                <span>
+                  DISTANCE
+                </span>
+
+                <strong>
+                  {selectedDestination?.name === "THE MOON"
+                    ? "384K KM"
+                    : selectedDestination?.name === "EUROPA"
+                    ? "628M KM"
+                    : selectedDestination?.name === "TITAN"
+                    ? "1.2B KM"
+                    : "225M KM"}
+                </strong>
+              </div>
+
+
+              <div>
+                <span>
+                  MISSION TIME
+                </span>
+
+                <strong>
+                  7 MONTHS
+                </strong>
+              </div>
+
+
+              <div>
+                <span>
+                  PROGRESS
+                </span>
+
+                <strong>
+                  42%
+                </strong>
+              </div>
+
+
+              <div>
+                <span>
+                  STATUS
+                </span>
+
+                <strong>
+                  NOMINAL
+                </strong>
+              </div>
+
+            </div>
+
+          </div>
+
+        </main>
+      )}
+
+
+      {/* ================= FOOTER ================= */}
+
+      <footer>
+
+        <div className="footer-logo">
+          OUTBOUND
         </div>
-      </section>
 
-      <section
-        id="about"
-        className={
-          visibleSections.includes("about")
-            ? "section-visible"
-            : "section-hidden"
-        }
-      >
-        <div className="about-content">
-          <p>ABOUT OUTBOUND</p>
+        <p>
+          THE FUTURE OF SPACE TRAVEL STARTS HERE.
+        </p>
 
-          <h2>EXPLORE BEYOND</h2>
+        <span>
+          © 2026 OUTBOUND
+        </span>
 
-          <p>
-            Outbound is an interactive space exploration
-            experience created to bring distant worlds and
-            future missions together in one journey.
-          </p>
-        </div>
-      </section>
-    </>
+      </footer>
+
+    </div>
   );
 }
 
