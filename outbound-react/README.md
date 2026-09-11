@@ -1,289 +1,283 @@
-# OUTBOUND — Space Exploration Experience
+# **OUTBOUND — Space Exploration Experience**
 
-Outbound is an interactive, space-themed single-page web application built using React. It provides a futuristic exploration experience where users can discover destinations, explore Mars, choose missions, and select a route for a Mars reconnaissance mission.
+Outbound is an interactive, space-themed single-page web application built using React. It provides a futuristic space exploration experience where users can select destinations, define missions, complete pre-launch checks, and track their journey through a mission-control interface.
 
----
-
-## Project Overview
-
-Outbound is designed to create an immersive space exploration experience rather than a traditional information-based website.
-
-Users can:
-
-- Explore different space destinations
-- Enter the Mars exploration section
-- Explore available Mars missions
-- View the Mars Reconnaissance mission
-- Choose between a Direct Route and a Gravity-Assisted Route
-- Confirm their route selection
-- Navigate through different sections of the application
-
-The application follows a single-page design, with sections revealed progressively as the user moves through the exploration journey.
+The project was developed as part of my Web Development learning journey to understand and apply fundamental React concepts while creating a visually engaging user experience.
 
 ---
 
-## Technologies Used
+# **Project Overview**
 
-- **React** — Front-end library for building the application
-- **JavaScript** — Application logic and interactions
-- **HTML / JSX** — Page structure and React components
-- **CSS** — Styling, layout, animations, and visual design
-- **Vite** — Development environment and build tool
-- **Google Fonts** — Orbitron and Rajdhani
-- **Git & GitHub** — Version control and project hosting
+Outbound simulates a space mission workflow through multiple interactive screens:
+
+**Choose a Destination → Define a Mission → Prepare → Launch → Track the Journey**
+
+Users can navigate through the application, make selections, and interact with different elements while React manages the application state and screen transitions.
 
 ---
 
-## Features
+# **Features**
 
-### Destination Exploration
+## **Destination Exploration**
 
-Users can explore different destinations, including:
+Users can explore different space destinations:
 
-- **Mars** — The Red Frontier
-- **Andromeda** — 2.5M Light Years
-- **Titan** — The Unknown
-- **Europa** — Ocean World
+* **The Moon**
+* **Mars**
+* **Europa**
+* **Titan**
 
-Mars is currently the active destination, while the other destinations are marked as coming soon.
+Each destination provides basic information such as distance from Earth and mission risk level.
 
-### Mars Exploration
+## **Mission Selection**
 
-The Mars section provides information about the destination, including:
+After selecting a destination, users can choose the purpose of their mission:
 
-- Distance
-- Estimated travel time
-- Planet type
+1. **Research**
+2. **Exploration**
+3. **Colonization**
+4. **Tourism**
 
-Users can proceed to the Mars mission section using the **Start Mission** button.
+## **Pre-Launch Preparation**
 
-### Mission Selection
+The application includes an interactive pre-launch checklist covering essential mission systems:
 
-The application presents four Mars missions:
+* **Oxygen System**
+* **Fuel System**
+* **Communication**
+* **Navigation**
+* **Crew Systems**
 
-1. Mars Reconnaissance
-2. Mars Rover Survey
-3. Mars Atmosphere
-4. Mars Life Search
+The launch sequence can continue only after all required systems are marked as ready.
 
-Currently, **Mission 01 — Mars Reconnaissance** is available.
+## **Launch Sequence**
 
-### Route Selection
+After completing the preparation stage, users can review their selected destination and mission before initiating the launch sequence.
 
-During Mission 01, users can choose between two routes:
+## **Mission Control**
 
-**Direct Route**
+The Journey screen provides a mission-control style dashboard displaying:
 
-- Faster journey
-- Uses more fuel
-
-**Gravity-Assisted Route**
-
-- Slower journey
-- Saves fuel
-
-The selected route is stored using React state and displayed on the confirmation screen.
-
-### Mission Confirmation
-
-After selecting a route, users can confirm their choice and receive a mission status showing:
-
-- Route confirmed
-- Ready for launch
-- Selected route
+* **Destination**
+* **Mission type**
+* **Distance**
+* **Mission time**
+* **Journey progress**
+* **Mission status**
 
 ---
 
-## Demo
+# **Technologies Used**
 
-[Watch the Outbound Demo](https://drive.google.com/file/d/1I2JkHY_S-ZmUKDxbCJ64mVRXwLaTb0ar/view?usp=sharing)
-
----
-
-## Screenshots
-
-### Home Page
-<img width="1349" height="594" alt="image" src="https://github.com/user-attachments/assets/c183ed0f-2430-4337-900d-1fa348c8c0b0" />
-
-The landing page introduces the Outbound space exploration experience.
-
-### Destination Selection
-<img width="1344" height="600" alt="image" src="https://github.com/user-attachments/assets/a846a14b-6a7e-4584-8c7b-6601545d78b6" />
-
-Users can explore different destinations and select Mars to begin their journey.
-
-### Mars Exploration
-<img width="1349" height="597" alt="image" src="https://github.com/user-attachments/assets/c7096dd6-61ad-4ddc-a08f-94cb5110a097" />
-
-The Mars section displays destination information and mission details.
-
-### Mission Selection
-<img width="1348" height="593" alt="image" src="https://github.com/user-attachments/assets/27dfd201-4ed1-4067-987f-efd42a2a550f" />
-
-Users can choose from different Mars missions, with Mission 01 currently available.
-
-### Route Selection
-<img width="1350" height="596" alt="image" src="https://github.com/user-attachments/assets/c9eecab6-5420-462b-bcee-2c1766db59bf" />
-
-Users can choose between a Direct Route and a Gravity-Assisted Route based on fuel usage.
-
-### Mission Confirmation
-<img width="1343" height="589" alt="image" src="https://github.com/user-attachments/assets/a2abb60a-c694-4a76-8e44-dc253b1e9846" />
-
-The selected route is confirmed and the mission is shown as ready for launch.
-
-### About Outbound
-<img width="1349" height="594" alt="image" src="https://github.com/user-attachments/assets/1e818f22-ce8e-42d2-bc46-b9ea1b59127c" />
+* **React** — Building the interactive user interface
+* **JavaScript** — Application logic and interactions
+* **JSX** — Structuring React components
+* **CSS** — Styling, layouts, backgrounds, animations, and responsive design
+* **Vite** — Development server and build tool
+* **Google Fonts** — Orbitron and Montserrat
+* **Git & GitHub** — Version control and project hosting
 
 ---
 
-## React Implementation
+# **React Concepts Used**
 
-The application uses React state to control the user journey.
+The project demonstrates several fundamental React concepts, including:
 
-For example:
+* **Components**
+* **JSX**
+* **useState**
+* **Event handling**
+* **Conditional rendering**
+* **Dynamic content rendering**
+* **Array mapping**
+* **State-based navigation**
+* **Interactive UI elements**
 
-```jsx
-const [visibleSections, setVisibleSections] = useState(["home"]);
+For example, the current screen is controlled using React state:
+
+```javascript
+const [currentPage, setCurrentPage] = useState("home");
 ```
 
-This keeps track of which sections should be visible.
-
-Route selection is also handled using React state:
-
-```jsx
-const [selectedRoute, setSelectedRoute] = useState("");
-```
-
-This allows the application to dynamically display the route selected by the user.
+Other application states are used to store the selected destination, selected mission, and pre-launch checklist status.
 
 ---
 
-## Project Structure
+# **Screenshots**
+
+## **Home**
+
+The landing screen introduces the Outbound experience and allows the user to begin planning their journey.
+
+<img width="1365" height="597" alt="image" src="https://github.com/user-attachments/assets/e8eb223d-019f-4356-8102-a93179ca722c" />
+
+---
+
+## **Destination Selection**
+
+Users can browse different space destinations and select one for their journey.
+
+<img width="1365" height="595" alt="image" src="https://github.com/user-attachments/assets/3f3b9b51-1a49-4de4-9f6c-23969c403b8c" />
+
+---
+
+## **Mission Selection**
+
+Users can choose the purpose of their space mission.
+
+<img width="1365" height="598" alt="image" src="https://github.com/user-attachments/assets/1a136448-5635-44c6-b919-ecdbaa7bb5ac" />
+
+---
+
+## **Mission Preparation**
+
+The preparation screen provides an interactive checklist to verify the systems required before launch.
+
+<img width="1365" height="597" alt="image" src="https://github.com/user-attachments/assets/e15be793-da9e-47af-81b8-6d057e2fcb8a" />
+
+---
+
+## **Lanuch Confirmation**
+
+The selected destination and mission are displayed before the launch sequence begins.
+
+<img width="1365" height="595" alt="image" src="https://github.com/user-attachments/assets/4bdcf37e-dedc-430c-9361-d36f1af18374" />
+
+---
+
+## **Mission Control**
+
+The Journey screen displays the active mission through a mission-control dashboard. It shows the selected destination, mission type, journey progress, distance, estimated mission time, and current mission status.
+
+<img width="1365" height="600" alt="image" src="https://github.com/user-attachments/assets/7ff95071-38ae-45f9-93f6-63fcd3bd7417" />
+
+---
+
+# **Demo Video**
+
+**Drive Link:** https://drive.google.com/file/d/1Z4rpjLBTeDXYJEMJKLTTIbxYA--fd_6d/view?usp=sharing
+
+---
+
+# **Project Structure**
 
 ```text
 outbound-react/
 │
 ├── public/
-│   └── images/
-│       ├── mars.jpg
-│       ├── andromeda.jpeg
-│       ├── titan.jpeg
-│       ├── europa.png
-│       ├── mm1.jpeg
-│       ├── mm2.webp
-│       ├── mm3.jpg
-│       ├── mm4.jpg
-│       └── spacecraft.jpeg
+│   ├── images/
+│   │   └── titan.jpeg
+│   ├── favicon.svg
+│   └── icons.svg
 │
 ├── src/
-│   ├── App.jsx
+│   ├── assets/
+│   │   ├── hero.png
+│   │   ├── react.svg
+│   │   └── vite.svg
 │   ├── App.css
+│   ├── App.jsx
 │   ├── index.css
 │   └── main.jsx
 │
+├── .gitignore
+├── eslint.config.js
 ├── index.html
-├── package.json
 ├── package-lock.json
+├── package.json
+├── README.md
 └── vite.config.js
 ```
 
 ---
 
-## Running the Project Locally
+# **Running the Project Locally**
 
-### 1. Clone the repository
+### **1. Clone the repository**
 
 ```bash
 git clone <repository-url>
 ```
 
-### 2. Navigate into the project
+### **2. Navigate to the project directory**
 
 ```bash
 cd outbound-react
 ```
 
-### 3. Install dependencies
+### **3. Install dependencies**
 
 ```bash
 npm install
 ```
 
-### 4. Start the development server
+### **4. Start the development server**
 
 ```bash
 npm run dev
 ```
 
-### 5. Open the application
+### **5. Open the application**
 
-Vite will provide a local URL similar to:
+Vite will provide a local development URL, usually:
 
 ```text
 http://localhost:5173/
 ```
 
-Open the URL in your browser to view the application.
+Open the URL in a browser to view the application.
 
 ---
 
-## Design
+# **Design**
 
-Outbound follows a futuristic, space-inspired visual style featuring:
+Outbound follows a futuristic, space-inspired visual design designed to create an immersive exploration experience.
 
-- Dark space backgrounds
-- Blue and purple gradients
-- Glass-style interface elements
-- Futuristic typography
-- Space imagery
-- Hover interactions
-- Smooth scrolling
-- Mission-style UI elements
+The interface includes:
 
-The primary fonts used are **Orbitron** and **Rajdhani**.
+* **Dark space-themed backgrounds**
+* **Blue and purple accent colors**
+* **Glass-style interface elements**
+* **Futuristic typography**
+* **Space imagery**
+* **Interactive cards and buttons**
+* **Hover effects**
+* **Screen-based navigation**
+* **Responsive layouts**
 
----
-
-## Project Objective
-
-The main objective of Outbound is to demonstrate how a traditional web design can be developed into an interactive React single-page application.
-
-The project demonstrates concepts including:
-
-- React components
-- JSX
-- React Hooks
-- `useState`
-- Event handling
-- Conditional rendering
-- Dynamic user interaction
-- CSS styling
-- Single-page navigation
+The primary fonts used are **Orbitron and Montserrat**.
 
 ---
 
-## Author
+# **Project Objective**
+
+The main objective of Outbound was to build an interactive single-page application while learning and applying the fundamentals of React.
+
+Through this project, I explored how React can be used to manage application state, handle user interactions, dynamically render content, and create transitions between different screens.
+
+---
+
+# **Future Improvements**
+
+Possible future improvements include:
+
+* **Adding more interactive destinations**
+* **Making currently unavailable destinations fully interactive**
+* **Adding additional mission types**
+* **Introducing spacecraft animations**
+* **Adding animated launch sequences**
+* **Expanding the mission-control dashboard**
+* **Adding detailed planetary information**
+* **Further improving mobile responsiveness**
+
+---
+
+# **Author**
 
 **N Ramya**
 
-Web Development Project — **Outbound**
+*Web Development Project — Outbound*
 
 ---
 
-## Future Improvements
-
-Possible future additions include:
-
-- Additional interactive destinations
-- More playable missions
-- Mission animations
-- Spacecraft launch sequences
-- More route options
-- Interactive planetary information
-- Additional React components
-- Responsive design improvements for mobile devices
-
----
-
-**Explore Beyond. Go Outbound.**
+Explore Beyond. Go Outbound.
